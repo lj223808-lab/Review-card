@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #dbeafe, #fef3c7);
+  margin: 0;
+  padding: 0;
+}
+
+/* Title + animation requirement */
+.title {
+  text-align: center;
+  padding: 20px;
+  font-size: 2.5rem;
+  animation: fadeDown 1.5s ease-in-out;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Layout */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 30px;
+}
+
+/* Card design */
+.card {
+  position: relative;
+  height: 120px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+/* Front side */
+.front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: bold;
+  transition: opacity 0.4s ease;
+}
+
+/* Back side (hidden at first) */
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: #2563eb;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 10px;
+
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+}
+
+/* Hover reveal effect */
+.card:hover .back {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card:hover .front {
+  opacity: 0;
+}
